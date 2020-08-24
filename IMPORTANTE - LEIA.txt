@@ -1,0 +1,7 @@
+Atenção!
+
+Para esse sistema funcionar é necessário a importação do banco de dados. Para isto, acesse seu sistema de gerenciamento de banco de dados e importe o script localizado na pasta "db".
+* Não é necessário criar um banco de dados para a importação.
+
+Atensiosamente,
+Eloísa Carvalho.
