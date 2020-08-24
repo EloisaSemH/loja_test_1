@@ -40,10 +40,10 @@
         ?>
             <tr>
                 <td class="align-middle" scope="row"><?php echo $func['func_cod']; ?></td>
-                <td class="align-middle"><?php echo $func['func_nome']; ?></td>
+                <td class="align-middle text-capitalize"><?php echo $func['func_nome']; ?></td>
                 <td class="align-middle"><?php echo $func['func_dataNasc']; ?></td>
                 <td class="align-middle"><?php echo $func['func_dataAdmissao']; ?></td>
-                <td class="align-middle"><?php echo $func['func_cargo']; ?></td>
+                <td class="align-middle text-capitalize"><?php echo $func['func_cargo']; ?></td>
                 <td class="align-middle">
                     <button type="button" class="btn btn-danger mb-2" name="excluir" onclick="confirmarExclusao(<?php echo $func['func_cod']; ?>)">Excluir</button>
                     <br>
