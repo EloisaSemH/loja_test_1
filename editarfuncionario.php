@@ -45,13 +45,28 @@ $dados = $funcionarioDAO->consultarDadosFuncionario($cod);
     <div class="form-group">
         <label for="Cargo">Cargo</label>
         <select id="cargo" name="cargo" class="form-control" required>
-            <option selected value="desenvolvedor">Desenvolvedor</option>
-            <option value="gestor">Gestor</option>
-            <option value="auxiliar">Auxiliar</option>
+            <?php
+            if ($dados['func_cargo'] == 'desenvolvedor') { ?>
+                <option selected value="desenvolvedor">Desenvolvedor</option>
+                <option value="gestor">Gestor</option>
+                <option value="auxiliar">Auxiliar</option>
+            <?php } elseif ($dados['func_cargo'] == 'gestor') { ?>
+                <option value="desenvolvedor">Desenvolvedor</option>
+                <option selected value="gestor">Gestor</option>
+                <option value="auxiliar">Auxiliar</option>
+            <?php } elseif ($dados['func_cargo'] == 'auxiliar') { ?>
+                <option value="desenvolvedor">Desenvolvedor</option>
+                <option value="gestor">Gestor</option>
+                <option selected value="auxiliar">Auxiliar</option>
+            <?php } else { ?>
+                <option value="desenvolvedor">Desenvolvedor</option>
+                <option value="gestor">Gestor</option>
+                <option value="auxiliar">Auxiliar</option>
+            <?php } ?>
         </select>
     </div>
     <div class="text-right">
-        <button type="button" class="btn btn-danger mr-2" name="excluir" id="excluir"  onclick="confirmarExclusao(<?php echo $dados['func_cod']; ?>)">Excluir</button>
+        <button type="button" class="btn btn-danger mr-2" name="excluir" id="excluir" onclick="confirmarExclusao(<?php echo $dados['func_cod']; ?>)">Excluir</button>
         <button type="submit" class="btn btn-info" name="atualizar">Atualizar</button>
     </div>
 </form>
@@ -75,9 +90,11 @@ if (isset($_POST['atualizar'])) {
             Swal.fire({
                 icon: 'success',
                 title: 'Atualizado com sucesso!',
-                footer: '<a href="funcionarios.php">Visualizar todos os cadastrados</a>'
+                footer: '<a href="funcionarios.php">Visualizar todos os cadastrados</a>',
+                html: '<a class="btn btn-info" href="editarfuncionario.php?cod=<?php echo $cod; ?>">Clique aqui para continuar</a>',
+                showConfirmButton: false
             })
-            window.reload();
+            
         </script>
     <?php
     } else {
